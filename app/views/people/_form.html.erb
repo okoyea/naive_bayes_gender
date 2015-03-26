@@ -1,6 +1,6 @@
 <%= form_for @person, remote: true do |f| %>
   <%= f.label :gender %>:
-  <%= f.select :gender, [["Female", "female"], ["Male", "male"]] %>
+  <%= f.select :gender, [['Female', 'female'], ['Male', 'male']] %>
   <%= f.label :height, 'Height (ft.)' %>:
   <%= f.number_field :height, in: 1..10 %>
   <%= f.label :weight, 'Weight (lbs.)' %>:
