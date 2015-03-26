@@ -1,5 +1,5 @@
 class PeopleController < ApplicationController
-  before_action :get_all_people, only: [:index, :create, :update, :destroy]
+  before_action :find_people, only: [:index, :create, :update, :destroy]
   before_action :find_person, only: [:edit, :update, :destroy]
   respond_to :html, :js
 
@@ -19,9 +19,10 @@ class PeopleController < ApplicationController
     @person.destroy
   end
 
+
 private
 
-  def get_all_people
+  def find_people
     @people = Person.order(:created_at)
   end
 
