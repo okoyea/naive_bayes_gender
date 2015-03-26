@@ -1,0 +1,8 @@
+<div class="row">
+  <%= person.id %>.
+  <%= person.gender %>
+  <%= person.height %>
+  <%= person.weight %>
+  <%= link_to "edit", edit_person_path(person),  remote: true, class: "btn btn-link btn-xs" %><br>
+  <%= link_to "delete", person, remote: true, method: :delete,  data: { confirm: 'Are you sure?' }, class: "btn btn-link btn-xs" %>
+</div>
