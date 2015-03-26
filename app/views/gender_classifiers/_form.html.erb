@@ -1,0 +1,7 @@
+<%= form_tag gender_classifiers_path, remote: true, method: :post do %>
+  <%= label_tag 'Height (ft.)' %>
+  <%= number_field_tag :height, in: 1..10 %>
+  <%= label_tag 'Weight (lbs.)' %>
+  <%= number_field_tag :weight, in: 1..1500 %>
+  <%= submit_tag "Get Prediction" %>
+<% end %>

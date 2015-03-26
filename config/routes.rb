@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'people#index'
-
+  root 'gender_classifiers#index'
+  resources :gender_classifiers
   resources :people
 end
