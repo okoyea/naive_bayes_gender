@@ -1,5 +1,11 @@
-<div class='container' >
-  <h2>Enter sample data to predict the gender:</h2>
-  <%= render 'form' %>
-  <div id='message' class='message'></div>
-</div>
+<% if Person.sufficient_records  %>
+  <div class='container' >
+    <h2>Enter some sample data to predict the gender:</h2>
+    <%= render 'form' %>
+    <div id='message' class='message'></div>
+  </div>
+<% else %>
+  <div class='container'>
+    <h2><%= link_to 'Add some data', people_path %> to get started!</h2>
+  </div>
+<% end %>

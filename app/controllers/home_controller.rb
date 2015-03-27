@@ -17,7 +17,7 @@ class HomeController < ApplicationController
 private
 
   def find_genders
-    @males = Person.where(gender: :male)
-    @females = Person.where(gender: :female)
+    @males = Person.male
+    @females = Person.female
   end
 end

@@ -5,7 +5,7 @@ module Stats
 
   included do
     def self.mean_and_dev(attribute, size)
-      return first.attribute.to_f, 0.0 if size == 1
+      return pluck(attribute)[0], 0.0 if size == 1
 
       mean = average(attribute)
       variance = pluck(attribute).inject(0) { |var, x| var += (x - mean) ** 2 }
