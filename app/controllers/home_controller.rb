@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
-  before_action :find_genders, only: [:create]
+  before_action :find_genders, only: [:get_prediction]
   before_action :find_sample, only: [:index]
 
-  def create
+  def get_prediction
     sample = Sample.new(@males,@females, params[:post][:height], params[:post][:weight])
 
     if sample.valid?
