@@ -4,7 +4,7 @@ require 'spec_helper'
 describe PeopleController, type: :controller do
 
   describe 'GET index' do
-    let! (:test_people) { create_list :person, 4, :male  }
+    let!(:test_people) { create_list :person, 4, :male  }
     before(:each) { get :index }
 
     it 'should assign all users to @posts' do
