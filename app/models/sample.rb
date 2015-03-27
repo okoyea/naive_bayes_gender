@@ -1,4 +1,7 @@
 class Sample
+  extend ActiveModel::Naming
+  include ActiveModel::AttributeMethods
+
   attr_reader :males,:females,:height,:weight
 
   def initialize(males,females,height,weight)
