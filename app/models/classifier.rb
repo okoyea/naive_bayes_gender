@@ -27,9 +27,9 @@ class Classifier
     if male_post == female_post
       return 'The gender cannot be determined - the posteriors of both genders are equal'
     elsif @total_males.zero? && !@total_females.zero?
-      return 'The sample is female because of error - Add males to the training set to get a better prediction'
+      return 'The sample is female, but because of error - Add males to the training set to get a better prediction'
     elsif @total_females.zero? && !@total_males.zero?
-      return 'The sample is male because of error - Add females to the training set to get a better prediction'
+      return 'The sample is male, but because of error - Add females to the training set to get a better prediction'
     elsif male_post > female_post
       return 'The sample is male'
     else
