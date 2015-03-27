@@ -1,21 +1,21 @@
 class HomeController < ApplicationController
   before_action :find_genders, only: [:get_prediction]
-  before_action :find_sample, only: [:index]
+  before_action :find_sample,  only: [:index]
 
   def get_prediction
-    sample = Sample.new(@males,@females, params[:post][:height], params[:post][:weight])
+    sample = Sample.new(@males,@females,params[:post][:height],params[:post][:weight])
 
     if sample.valid?
       classifier = Classifier.new(sample).build
-      mp, fp = Posterior.calculate(sample,classifier)
-      @message = classifier.make_prediction(mp,fp)
+      posterior = Posterior.calculate(sample,classifier)
+      @message = classifier.make_prediction(posterior[0],posterior[1])
     else
       @message = 'Invalid data has been entered'
     end
   end
 
 
-private
+  private
 
   def find_genders
     @males = Person.male

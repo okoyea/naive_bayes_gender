@@ -5,13 +5,14 @@ class Classifier
   def initialize(sample)
     @males = sample.males
     @females = sample.females
-    @total_males = @males.count.to_f
-    @total_females = @females.count.to_f
+    @total_males = @males.size.to_f
+    @total_females = @females.size.to_f
   end
 
   def build
     @female_hm,@female_hv = @females.mean_and_dev(:height, @total_females)
     @female_wm,@female_wv = @females.mean_and_dev(:weight, @total_females)
+
     @male_hm,@male_hv = @males.mean_and_dev(:height, @total_males)
     @male_wm,@male_wv = @males.mean_and_dev(:weight, @total_males)
 

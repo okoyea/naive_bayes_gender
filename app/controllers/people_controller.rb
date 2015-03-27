@@ -20,7 +20,7 @@ class PeopleController < ApplicationController
   end
 
 
-private
+  private
 
   def find_people
     @people = Person.order(:created_at)

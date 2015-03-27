@@ -9,6 +9,6 @@ class Person < ActiveRecord::Base
   scope :female, -> { where(gender: :female) }
 
   def self.sufficient_records
-    (male.count >= 1 && female.count >= 1) ? true : false
+    (male.size >= 1 && female.size >= 1) ? true : false
   end
 end
