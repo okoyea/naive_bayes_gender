@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   before_action :find_sample,  only: [:index]
 
   def get_prediction
-    sample = Sample.new(@males,@females,params[:post][:height],params[:post][:weight])
+    sample = Sample.new(@males,@females,params[:sample][:height],params[:sample][:weight])
 
     if sample.valid?
       classifier = Classifier.new(sample)
