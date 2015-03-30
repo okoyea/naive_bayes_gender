@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     sample = Sample.new(@males,@females,params[:post][:height],params[:post][:weight])
 
     if sample.valid?
-      classifier = Classifier.new(sample).build
+      classifier = Classifier.new(sample)
       posterior = Posterior.calculate(sample,classifier)
       @message = classifier.make_prediction(posterior[0],posterior[1])
     else

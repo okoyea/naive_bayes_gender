@@ -1,5 +1,5 @@
 class Classifier
-  attr_reader :prob_male,:prob_female,:female_hm,:female_hv,
+  attr_accessor :prob_male,:prob_female,:female_hm,:female_hv,
   :female_wm,:female_wv,:male_hm,:male_hv,:male_wm,:male_wv
 
   def initialize(sample)
@@ -7,20 +7,20 @@ class Classifier
     @females = sample.females
     @total_males = @males.size.to_f
     @total_females = @females.size.to_f
+
+    build
   end
 
   def build
-    @female_hm,@female_hv = @females.mean_and_dev(:height, @total_females)
-    @female_wm,@female_wv = @females.mean_and_dev(:weight, @total_females)
+    self.female_hm,self.female_hv = @females.mean_and_dev(:height, @total_females)
+    self.female_wm,self.female_wv = @females.mean_and_dev(:weight, @total_females)
 
-    @male_hm,@male_hv = @males.mean_and_dev(:height, @total_males)
-    @male_wm,@male_wv = @males.mean_and_dev(:weight, @total_males)
+    self.male_hm,self.male_hv = @males.mean_and_dev(:height, @total_males)
+    self.male_wm,self.male_wv = @males.mean_and_dev(:weight, @total_males)
 
     training_set_size = @total_males + @total_females
-    @prob_male = @total_males/training_set_size
-    @prob_female = @total_females/training_set_size
-
-    self
+    self.prob_male = @total_males/training_set_size
+    self.prob_female = @total_females/training_set_size
   end
 
   def make_prediction(male_post, female_post)
