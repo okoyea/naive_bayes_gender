@@ -4,10 +4,10 @@ require 'spec_helper'
 RSpec.describe Classifier, type: :model do
 
   describe 'build_classifier' do
-    let(:males) { Person.where(gender: :male) }
-    let(:females) { Person.where(gender: :female) }
+    let(:males) { Person.male }
+    let(:females) { Person.female }
     let(:sample) { Sample.new(males,females,6,200) }
-    let(:classifier) { Classifier.new(sample).build }
+    let(:classifier) { Classifier.new(sample) }
 
     before do
       Person.create(gender: :male, height: 6.0, weight: 200)
@@ -62,10 +62,15 @@ RSpec.describe Classifier, type: :model do
   end
 
   describe 'make_prediction' do
-    let(:males) { create_list :person, 4, :male }
-    let(:females) { create_list :person, 4, :female }
+    let(:males) { Person.male }
+    let(:females) { Person.female }
     let(:sample) { Sample.new(males,females,6,200) }
     let(:classifier) { Classifier.new(sample) }
+
+    before(:each) do
+      create :person, :male
+      create :person, :female
+    end
 
     it 'should be undetermined when both posteriors are equal' do
       expect(classifier.make_prediction(0,0)).to include 'cannot be determined'

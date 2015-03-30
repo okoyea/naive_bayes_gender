@@ -6,7 +6,7 @@ RSpec.describe Posterior, type: :model do
     let(:males) { Person.where(gender: :male) }
     let(:females) { Person.where(gender: :female) }
     let(:sample) { Sample.new(males,females,6,200) }
-    let(:classifier) { Classifier.new(sample).build }
+    let(:classifier) { Classifier.new(sample) }
 
     before do
       Person.create(gender: :male, height: 6.0, weight: 200)
