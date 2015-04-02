@@ -27,7 +27,8 @@ class TrainingDataHelper
       if gender.nil? || height.nil? || weight.nil?
         raise ArgumentError, "Person with id #{person['person']['id']} has a missing or null attribute"
       else
-        sql = "INSERT INTO people (gender, height, weight, created_at, updated_at) VALUES ('#{gender.downcase.to_s}', #{height.round}, #{weight.round}, '#{TIME}', '#{TIME}')"
+        sql = "INSERT INTO people (gender, height, weight, created_at, updated_at) VALUES
+              ('#{gender.downcase.to_s}', #{height.round}, #{weight.round}, '#{TIME}', '#{TIME}')"
         ActiveRecord::Base.connection.execute(sql)
       end
     end
