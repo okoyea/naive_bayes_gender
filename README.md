@@ -17,6 +17,22 @@ rake db:migrate
 
 Enter `rails s` to start the server and navigate to localhost:3000
 
+##Importing Training Data
+
+
+By default, files are imported from the home path, so any subdirectories must be included.
+
+####Examples
+
+To import data from your desktop:
+
+```
+rake training_data:import[Desktop/gender_classifier_training_data.json]
+
+for zsh users:
+rake training_data:import\[Desktop/gender_classifier_training_data.json\]
+```
+
 ##Tests
 
 Tests can be run from the root foler with `rspec`
