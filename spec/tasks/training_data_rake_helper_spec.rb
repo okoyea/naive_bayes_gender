@@ -4,17 +4,16 @@ require 'spec_helper'
 describe 'training_data helper for rake task' do
 
   context 'when the data is valid' do
+    let(:helper) { TrainingDataHelper.new(@full) }
+    let(:test_json) { JSON.parse(@file) }
+
     before do
       @full = Dir.pwd + "/spec/support/valid.json"
       root = File.expand_path("~/") + "/"
       @full.slice!(root)
-
       path = File.expand_path("~/") + "/" + @full
       @file = File.open("#{path}").read
     end
-
-    let(:helper) { TrainingDataHelper.new(@full) }
-    let(:test_json) { JSON.parse(@file) }
 
     it 'should properly import the file ' do
       helper.get_json
@@ -31,6 +30,9 @@ describe 'training_data helper for rake task' do
   end
 
   context 'when the data is invalid' do
+    let(:helper) { TrainingDataHelper.new(@full) }
+    let(:test_json) { JSON.parse(@file) }
+
     before do
       @full = Dir.pwd + "/spec/support/invalid.json"
       root = File.expand_path("~/") + "/"
@@ -38,9 +40,6 @@ describe 'training_data helper for rake task' do
       path = File.expand_path("~/") + "/" + @full
       @file = File.open("#{path}").read
     end
-
-    let(:helper) { TrainingDataHelper.new(@full) }
-    let(:test_json) { JSON.parse(@file) }
 
     it 'should properly import the file ' do
       helper.get_json
