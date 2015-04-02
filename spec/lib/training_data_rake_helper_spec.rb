@@ -21,11 +21,15 @@ describe 'training_data helper for rake task' do
     end
 
     it 'should import all people' do
-      expect{helper.parse_file}.to change(Person, :count).by(2)
+      silence_stream(STDOUT) do
+        expect{helper.parse_file}.to change(Person, :count).by(2)
+      end
     end
 
     it 'should not raise an error' do
-      expect{helper.parse_file}.to_not raise_error
+      silence_stream(STDOUT) do
+        expect{helper.parse_file}.to_not raise_error
+      end
     end
   end
 

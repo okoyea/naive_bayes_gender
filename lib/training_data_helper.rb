@@ -19,6 +19,8 @@ class TrainingDataHelper
   end
 
   def import
+    count = 0
+
     self.json["people"].each do |person|
       gender = (person['person']['gender'])
       height = (person['person']['height'])
@@ -30,7 +32,11 @@ class TrainingDataHelper
         sql = "INSERT INTO people (gender, height, weight, created_at, updated_at) VALUES
               ('#{gender.downcase.to_s}', #{height.round}, #{weight.round}, '#{TIME}', '#{TIME}')"
         ActiveRecord::Base.connection.execute(sql)
+
+        count+=1
       end
     end
+
+    puts "Import Succesful! #{count} records were created"
   end
 end
