@@ -1,8 +1,7 @@
 require 'rails_helper'
 require 'spec_helper'
 
-describe 'training_data helper for rake task' do
-
+describe 'Training data helper for training_data:import rake task' do
   context 'when the data is valid' do
     let(:helper) { TrainingDataHelper.new(@full) }
     let(:test_json) { JSON.parse(@file) }
