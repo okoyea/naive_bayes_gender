@@ -24,6 +24,8 @@ RSpec.configure do |config|
   # assertions if you prefer.
   config.include FactoryGirl::Syntax::Methods
 
+  config.expect_with(:rspec) { |c| c.syntax = [:should,:expect] }
+
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`
     # and `failure_message` of custom matchers include text for helper methods

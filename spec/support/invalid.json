@@ -1,0 +1,20 @@
+{
+  "people": [
+    {
+      "person": {
+        "id": 1,
+        "height": null,
+        "weight": 166.67,
+        "gender": "Female"
+      }
+    },
+    {
+      "person": {
+        "id": 5,
+        "height": null,
+        "weight": 220.67,
+        "gender": "Male"
+      }
+    }
+  ]
+}
