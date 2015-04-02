@@ -7,7 +7,7 @@ describe 'Training data helper for training_data:import rake task' do
     let(:test_json) { JSON.parse(@test_file) }
 
     before do
-      @full_path = Dir.pwd + "/spec/support/valid.json"
+      @full_path = "#{Rails.root}/spec/support/valid.json"
       root_path = File.expand_path("~/") + "/"
       @full_path.slice!(root_path)
 
@@ -38,7 +38,7 @@ describe 'Training data helper for training_data:import rake task' do
     let(:test_json) { JSON.parse(@test_file) }
 
     before do
-      @full_path = Dir.pwd + "/spec/support/invalid.json"
+      @full_path = "#{Rails.root}/spec/support/invalid.json"
       root_path = File.expand_path("~/") + "/"
       @full_path.slice!(root_path)
 
