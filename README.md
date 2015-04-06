@@ -1,6 +1,6 @@
 ## Naive Bayes Gender Classifier
 
-This app uses the Naive Bayes classifier to predict what gender a sample is given the height and weight.
+This app uses the Naive Bayes classifier to predict what gender a sample is given the height and weight. The app is deployed at http://naive-bayes.herokuapp.com
 
 ##Setup and Run
 
